@@ -5,6 +5,102 @@
       import React from 'react';
       ${1}
     """
+  'import PropTypes':
+    'prefix': 'impp'
+    'body': """
+      import PropTypes from 'prop-types';
+      ${1}
+    """
+  'import lodash':
+    'prefix': 'impp'
+    'body': """
+      import _ from 'lodash';
+      ${1}
+    """
+  'import lodash':
+    'prefix': 'impapi'
+    'body': """
+      import Api from '#api';
+      ${1}
+    """
+  'import component':
+    'prefix': 'impc'
+    'body': """
+      import ${1} from '#components/${1}';
+      ${1}
+    """
+  'import component guideline':
+    'prefix': 'impcgl'
+    'body': """
+      import ${1} from '#guideline/components/${1}';
+      ${1}
+    """
+  'import container':
+    'prefix': 'impco'
+    'body': """
+      import ${1} from '#containers/${1}';
+      ${1}
+    """
+  'import container guideline':
+    'prefix': 'impcogl'
+    'body': """
+    import ${1} from '#guideline/containers/${1}';
+    ${1}
+    """
+  'import reducer':
+    'prefix': 'impred'
+    'body': """
+      import ${1} from '#reducers/${1}';
+      ${1}
+    """
+  'import reducer guideline':
+    'prefix': 'impredgl'
+    'body': """
+    import ${1} from '#guideline/reducers/${1}';
+    ${1}
+    """
+  'import action':
+    'prefix': 'impact'
+    'body': """
+      import ${1} from '#actions/${1}';
+      ${1}
+    """
+  'import action guideline':
+    'prefix': 'impactgl'
+    'body': """
+    import ${1} from '#guideline/actions/${1}';
+    ${1}
+    """
+  'import effect':
+    'prefix': 'impeff'
+    'body': """
+      import ${1} from '#effects/${1}';
+      ${1}
+    """
+  'import effect guideline':
+    'prefix': 'impeffgl'
+    'body': """
+    import ${1} from '#guideline/effects/${1}';
+    ${1}
+    """
+  'import selector':
+    'prefix': 'impsel'
+    'body': """
+      import ${1} from '#selectors/${1}';
+      ${1}
+    """
+  'import selector guideline':
+    'prefix': 'impselgl'
+    'body': """
+    import ${1} from '#guideline/selectors/${1}';
+    ${1}
+    """
+  'import style':
+    'prefix': 'ipmst'
+    'body': """
+      import _style${1} from './style';
+      ${3}
+    """
 
   'import ReactDom':
     'prefix': 'imrd'
@@ -13,49 +109,49 @@
       ${1}
     """
 
-  'import React, { Component }':
-    'prefix': 'imrc'
-    'body': """
-      import React, { Component } from 'react';
-      ${1}
-    """
-
-  'import React, { Component, PropTypes }':
-    'prefix': 'imrcp'
-    'body': """
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
-      ${1}
-    """
-
   'React ES7 Component':
     'prefix': 'rc'
     'body': """
-      import React, { Component } from 'react';
+      import React from 'react';
 
 
-      export default class ${1:MyComponent} extends Component {
+      export default class ${1:MyComponent} extends React.Component {
+        static propTypes = {
+          ${2:style: PropTypes.shape({}),}
+        }
 
         render() {
           return (
-            ${2:<div>MyComponent</div>}
+            ${3:<View></View>}
           );
         }
-
       }
+    """
+
+  'React native ES7 style':
+    'prefix': 'rst'
+    'body': """
+    import { StyleSheet } from 'react-native';
+
+    export default StyleSheet.create({
+      ${1:view}: {
+        ${2}
+      },
+    });
+
     """
 
   'React ES7 Component':
     'prefix': 'rcp'
     'body': """
-      import React, { Component } from 'react';
+      import React from 'react';
       import PropTypes from 'prop-types';
 
 
-      export default class ${1:MyComponent} extends Component {
+      export default class ${1:MyComponent} extends React.PureComponent {
 
         static propTypes = {
-          ${2}
+          ${2:style: PropTypes.shape({}),}
         };
 
         render() {
@@ -123,26 +219,19 @@
     """
 
   'React ES7 Redux Container':
-    'prefix': 'rcredux'
+    'prefix': 'rcr'
     'body': """
-      import React, { Component } from 'react';
+      import React from 'react';
       import PropTypes from 'prop-types';
       import { connect } from 'react-redux';
 
 
-      class ${1:MyComponent} extends Component {
+      class ${1:MyComponent} extends React.Component {
 
         static propTypes = {
           ${4}
         };
 
-        constructor(props) {
-          super(props);
-
-          this.state = {
-            ${5}
-          };
-        }
 
         render() {
           return (
@@ -164,9 +253,9 @@
     """
 
   'React ES7 Redux Container Decorator':
-    'prefix': 'rcreduxd'
+    'prefix': 'rcrd'
     'body': """
-      import React, { Component } from 'react';
+      import React from 'react';
       import PropTypes from 'prop-types';
       import { connect } from 'react-redux';
 
@@ -174,207 +263,40 @@
       @connect(
         state => ({ ${2} }),
       )
-      export default class ${1:MyComponent} extends Component {
+      export default class ${1:MyComponent} extends React.Component {
 
         static propTypes = {
           ${3}
         };
 
-        constructor(props) {
-          super(props);
-
-          this.state = {
-            ${4}
-          };
-        }
-
         render() {
           return (
-            ${5:<div>MyComponent</div>}
+            ${4:<View>MyComponent</View>}
           );
         }
 
       }
-    """
-
-  'React ES7 Relay Container':
-    'prefix': 'rcrelay'
-    'body': """
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
-      import Relay from 'react-relay';
-
-
-      class ${1:MyComponent} extends Component {
-
-        static propTypes = {
-          ${2:viewer}: PropTypes.object.isRequired,
-        };
-
-        render() {
-          return (
-            ${5:<div>MyComponent</div>}
-          );
-        }
-
-      }
-
-      export default Relay.createContainer(${1:MyComponent}, {
-        fragments: {
-          ${2:viewer}: () => Relay.QL`
-      			fragment on ${3:Viewer} {
-      				${4:id}
-      			}
-          `,
-        },
-      });
-    """
-
-  'React ES7 Relay Container initialVariables':
-    'prefix': 'rcrelayv'
-    'body': """
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
-      import Relay from 'react-relay';
-
-
-      class ${1:MyComponent} extends Component {
-
-        static propTypes = {
-          ${2:viewer}: PropTypes.object.isRequired,
-        };
-
-        render() {
-          return (
-            ${6:<div>MyComponent</div>}
-          );
-        }
-
-      }
-
-      export default Relay.createContainer(${1:MyComponent}, {
-        initialVariables: {
-          ${4}
-        },
-        fragments: {
-          ${2:viewer}: () => Relay.QL`
-      			fragment on ${3:Viewer} {
-      				${5:id}
-      			}
-          `,
-        },
-      });
-    """
-
-  'React ES7 Relay Container prepareVariables':
-    'prefix': 'rcrelayvp'
-    'body': """
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
-      import Relay from 'react-relay';
-
-
-      class ${1:MyComponent} extends Component {
-
-        static propTypes = {
-          ${2:viewer}: PropTypes.object.isRequired,
-        };
-
-        render() {
-          return (
-            ${8:<div>MyComponent</div>}
-          );
-        }
-
-      }
-
-      export default Relay.createContainer(${1:MyComponent}, {
-        initialVariables: {
-          ${4}
-        },
-        prepareVariables(prevVariables) {
-          const ${5:include} = !!prevVariables.${6:variable};
-          return {
-            ...prevVariables,
-            ${5:include},
-          };
-        },
-        fragments: {
-          ${2:viewer}: () => Relay.QL`
-      			fragment on ${3:Viewer} {
-      				${7:id}
-      			}
-          `,
-        },
-      });
-    """
-
-  'React ES7 Component export':
-    'prefix': 'rce'
-    'body': """
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
-
-
-      class ${1:Class} extends Component {
-
-        static propTypes = {
-          ${2}
-        };
-
-        constructor(props) {
-          super(props);
-
-          this.state = {
-            ${3}
-          };
-        }
-
-        render() {
-          return (
-            ${4:<div>MyComponent</div>}
-          );
-        }
-
-      }
-
-      export default ${1:Class};
     """
 
   'React ES7 Functional Component':
-    'prefix': 'rfunc'
+    'prefix': 'rfc'
     'body': """
       import React from 'react';
       import PropTypes from 'prop-types';
 
+      const propTypes = {
+        ${2:style: PropTypes.shape({})}
+      };
 
-      export default function ${1}(${3:props}) {
+      const ${1} = ({${3}}) => {
         return (
-          ${4:<div>MyComponent</div>}
+          ${4:<View>MyComponent</View>}
         );
       }
 
-      ${1}.propTypes = {
-        ${2}
-      };
-    """
-
-  'React ES7 Functional Arrow Component':
-    'prefix': 'rarrow'
-    'body': """
-      import React from 'react';
-      import PropTypes from 'prop-types';
+      ${1}.propTypes = propTypes;
 
 
-      const $1 = (${3:props}) => (
-        ${4:<div />}
-      );
-
-      ${1}.propTypes = {
-        ${2}
-      };
-
-      export default ${1};
     """
 
   'React ES7 Constructor':
@@ -385,18 +307,6 @@
 
         ${1}
       }
-    """
-
-  'React ES6 bind method to this':
-    'prefix': 'rbm',
-    'body': """
-      this.${1} = this.${1}.bind(this);
-    """
-
-  'React ES7 bind method to this':
-    'prefix': 'rbm7',
-    'body': """
-      this.${1} = ::this.${1};
     """
 
   'React componentWillMount (ES7)':
@@ -456,19 +366,19 @@
     """
 
   'React this.props':
-    'prefix': 'props'
-    'body': 'this.props${1}'
+    'prefix': 'xprop'
+    'body': """
+      const {
+        ${1}
+      } = this.props;
+    """
 
   'React this.state':
-    'prefix': 'state'
-    'body': 'this.state${1}'
-
-  'React cx({ ... }) (ES7)':
-    'prefix': 'cx'
+    'prefix': 'xstate'
     'body': """
-      cx({
-        ${1}: ${2},
-      });
+      const {
+        ${1}
+      } = this.state;
     """
 
   'React static defaultProps = { ... } (ES7)':
@@ -487,28 +397,12 @@
       };
     """
 
-  'React static contextTypes = { ... } (ES7)':
-    'prefix': 'ct'
+  'React static previewProps = { ... } (ES7)':
+    'prefix': 'pp'
     'body': """
-      static contextTypes = {
-        ${1}: PropTypes.${2:string},
+      static previewProps = {
+        ${1}: ${2:string},
       };
-    """
-
-  'React static childContextTypes = { ... } (ES7)':
-    'prefix': 'cct'
-    'body': """
-      static childContextTypes = {
-        ${1}: PropTypes.${2:string},
-      };
-    """
-
-  'React getChildContext (ES7)':
-    'prefix': 'gcct'
-    'body': """
-      getChildContext() {
-        return ${1}
-      }
     """
 
   'React setState({ ... }) (ES7)':
@@ -633,7 +527,7 @@
 
   # PropType shape
   'PropTypes.shape({...})':
-    'prefix': 'ptshape'
+    'prefix': 'ptsh'
     'body': """
       PropTypes.shape({
         ${1}
@@ -654,3 +548,101 @@
   'PropTypes.any.isRequired':
     'prefix': 'ptanyr'
     'body': 'PropTypes.any.isRequired'
+  # PropType img
+  'PropTypes.img':
+    'prefix': 'ptimg'
+    'body': 'PropTypes.image'
+  'PropTypes.img.isRequired':
+    'prefix': 'ptimgr'
+    'body': 'PropTypes.image.isRequired'
+  # PropType children
+  'PropTypes.children':
+    'prefix': 'ptc'
+    'body': 'PropTypes.children'
+  'PropTypes.children.isRequired':
+    'prefix': 'ptcr'
+    'body': 'PropTypes.children.isRequired'
+
+
+
+  'React redux reducer (ES7)':
+    'prefix': 'rrdx'
+    'body': """
+import { handleActions } from 'redux-actions';
+
+import * as ${1} from '#actions/quote';
+import * as ${1} from '#actions/${2}';
+
+const INITIAL_STATE = {
+  ${3}
+};
+
+export default handleActions({
+  [${1}.${4}]: (state, { payload }) => ({
+    ...state,
+    ${6},
+  }),
+}, INITIAL_STATE);
+
+    """
+
+  'React redux actions (ES7)':
+    'prefix': 'rrdxa'
+    'body': """
+import { createAction } from 'redux-actions';
+
+export const ${2} = '${1}_${2}';
+
+const ${3} = createAction(${2});
+
+export default {
+  ${3},
+};
+
+    """
+
+  'React redux action:'
+    'prefix': 'rrdxa1'
+    'body': """
+export const ${2} = '${1}_${2}';
+
+const ${3} = createAction(${2});
+    """
+
+  'React redux  api action:'
+    'prefix': 'rrdxapi'
+    'body': """
+import { generateApiAction, createApiAction } from '#guideline/utils/api';
+
+export const ${2} = generateApiAction('${1}_${2}');
+
+const ${3} = createApiAction(${2});
+
+export default {
+  ${3},
+};
+    """
+  'React redux  api action:'
+    'prefix': 'rrdxapi1'
+    'body': """
+export const ${2} = generateApiAction('${1}_${2}');
+
+const ${3} = createApiAction(${2});
+    """
+
+  'React redux effects (ES7)':
+    'prefix': 'rrdxe'
+    'body': """
+import Api from '#api';
+
+import ${1}Actions from '#actions/${1}';
+
+const ${2} = data => (dispatch) => {
+  return dispatch(${1}Actions.${2}(Api.${3:get}('/${4}')));
+};
+
+export default {
+  ${2},
+};
+
+    """
