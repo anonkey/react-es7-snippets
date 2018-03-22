@@ -6,91 +6,91 @@
       ${1}
     """
   'import PropTypes':
-    'prefix': 'impp'
+    'prefix': 'im'
     'body': """
       import PropTypes from 'prop-types';
       ${1}
     """
   'import lodash':
-    'prefix': 'impp'
+    'prefix': 'iml'
     'body': """
       import _ from 'lodash';
       ${1}
     """
-  'import lodash':
-    'prefix': 'impapi'
+  'import api':
+    'prefix': 'imapi'
     'body': """
       import Api from '#api';
       ${1}
     """
   'import component':
-    'prefix': 'impc'
+    'prefix': 'imc'
     'body': """
       import ${1} from '#components/${1}';
       ${1}
     """
   'import component guideline':
-    'prefix': 'impcgl'
+    'prefix': 'imcgl'
     'body': """
       import ${1} from '#guideline/components/${1}';
       ${1}
     """
   'import container':
-    'prefix': 'impco'
+    'prefix': 'imco'
     'body': """
       import ${1} from '#containers/${1}';
       ${1}
     """
   'import container guideline':
-    'prefix': 'impcogl'
+    'prefix': 'imcogl'
     'body': """
     import ${1} from '#guideline/containers/${1}';
     ${1}
     """
   'import reducer':
-    'prefix': 'impred'
+    'prefix': 'imred'
     'body': """
       import ${1} from '#reducers/${1}';
       ${1}
     """
   'import reducer guideline':
-    'prefix': 'impredgl'
+    'prefix': 'imredgl'
     'body': """
     import ${1} from '#guideline/reducers/${1}';
     ${1}
     """
   'import action':
-    'prefix': 'impact'
+    'prefix': 'imact'
     'body': """
       import ${1} from '#actions/${1}';
       ${1}
     """
   'import action guideline':
-    'prefix': 'impactgl'
+    'prefix': 'imactgl'
     'body': """
     import ${1} from '#guideline/actions/${1}';
     ${1}
     """
   'import effect':
-    'prefix': 'impeff'
+    'prefix': 'imeff'
     'body': """
       import ${1} from '#effects/${1}';
       ${1}
     """
   'import effect guideline':
-    'prefix': 'impeffgl'
+    'prefix': 'imeffgl'
     'body': """
     import ${1} from '#guideline/effects/${1}';
     ${1}
     """
   'import selector':
-    'prefix': 'impsel'
+    'prefix': 'imsel'
     'body': """
       import ${1} from '#selectors/${1}';
       ${1}
     """
   'import selector guideline':
-    'prefix': 'impselgl'
+    'prefix': 'imselgl'
     'body': """
     import ${1} from '#guideline/selectors/${1}';
     ${1}
