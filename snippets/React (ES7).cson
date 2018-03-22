@@ -601,7 +601,7 @@ export default {
 
     """
 
-  'React redux action:'
+  'React redux action':
     'prefix': 'rrdxa1'
     'body': """
 export const ${2} = '${1}_${2}';
@@ -609,7 +609,7 @@ export const ${2} = '${1}_${2}';
 const ${3} = createAction(${2});
     """
 
-  'React redux  api action:'
+  'React redux  api action':
     'prefix': 'rrdxapi'
     'body': """
 import { generateApiAction, createApiAction } from '#guideline/utils/api';
@@ -622,7 +622,7 @@ export default {
   ${3},
 };
     """
-  'React redux  api action:'
+  'React redux  api action':
     'prefix': 'rrdxapi1'
     'body': """
 export const ${2} = generateApiAction('${1}_${2}');
