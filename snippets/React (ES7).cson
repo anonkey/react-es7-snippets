@@ -156,7 +156,7 @@
 
         render() {
           return (
-            ${3:<div>MyComponent</div>}
+            ${3:<View></View>}
           );
         }
 
@@ -285,10 +285,10 @@
       import PropTypes from 'prop-types';
 
       const propTypes = {
-        ${2:style: PropTypes.shape({})}
+        ${2:style: PropTypes.shape({\}),}
       };
 
-      const ${1} = ({${3}}) => {
+      const ${1} = (${3}) => {
         return (
           ${4:<View>MyComponent</View>}
         );
@@ -580,7 +580,7 @@ const INITIAL_STATE = {
 export default handleActions({
   [${1}.${4}]: (state, { payload }) => ({
     ...state,
-    ${6},
+    ${5},
   }),
 }, INITIAL_STATE);
 
